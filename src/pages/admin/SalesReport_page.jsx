@@ -1,5 +1,6 @@
+import { Dashboard } from '@/components'
 import React from 'react'
-import Dashboard from './Dashboard'
+
 
 function SalesReport_page() {
   return (

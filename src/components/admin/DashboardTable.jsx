@@ -2,23 +2,26 @@
 
 import React from "react";
 import TableCard from './TableCard';
+import { Dashboard_card } from "..";
 
 
 const DashboardTable = () => {
     return (
-        <div className='shadow-md shadow-gray-200 rounded-xl w-full border inline-block border-gray-200'>
-            <div className='flex mt-6 ml-4 mb-4'>
-           
-            <img src="" alt="Earning Statistics" style={{ width: '48px' ,height: '26px'}} />
-            <h1 className=" font-semibold text-lg">Table Booking Today</h1>
-                 
-            </div>
-
-
-
-
-            <TableCard />
+      <Dashboard_card title={"Table Booking Today"}  titleImg={"business_analytics.png "}>
+         <div className=" grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <TableCard tableNo={"1"} />
+        <TableCard tableNo={"2"} />
+        <TableCard tableNo={"3"} />
+        <TableCard tableNo={"4"} />
+        <TableCard tableNo={"5"} />
+        <TableCard tableNo={"6"} />
+        <TableCard tableNo={"7"} />
+        <TableCard tableNo={"8"} />
+        <TableCard tableNo={"9"} />
+       
         </div>
+      </Dashboard_card>
+  
     );
 }
 

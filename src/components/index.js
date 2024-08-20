@@ -6,6 +6,9 @@ import RecentOrder from "./admin/RecentOrder"
 import Sidebarmenu from "./admin/Sidebar"
 import DashboardTable from "./admin/DashboardTable"
 import RecenetOrderComp from "./admin/RecenetOrderComp"
+import Dashboard from "./admin/Dashboard"
+import Dashboard_card from "./admin/Dashboard_card"
+import DashboardHead from "./admin/DashboardHead"
 
 export {
     Header,
@@ -15,5 +18,8 @@ export {
     Sidebarmenu,
     DashboardTable,
     RecentOrder,
-    RecenetOrderComp
+    RecenetOrderComp,
+    Dashboard_card,
+    Dashboard,
+    DashboardHead
 }

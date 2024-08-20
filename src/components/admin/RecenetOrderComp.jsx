@@ -10,8 +10,8 @@ function RecenetOrderComp() {
     },
   ];
   return (
-    <div className=" p-5 inline-block shadow-md shadow-gray-200 border-gray-200 border rounded-xl  w-full sm:w-[30rem] ">
-      <div className=" flex justify-between mr-8">
+    <div className=" p-5 inline-block shadow-md border-gray-200 border rounded-xl  w-full sm:w-[30rem] ">
+      <div className=" flex justify-between">
         <h1 className=" font-semibold">Recent Order</h1>
         <p className=" font-semibold text-blue-800 ">View All</p>
       </div>

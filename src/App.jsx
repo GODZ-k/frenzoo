@@ -13,6 +13,7 @@ import { getToken, onMessage } from "firebase/messaging";
 import SalesReport_page from "./pages/admin/SalesReport_page";
 import Dashboard_page from "./pages/admin/Dashboard_page";
 import CashPayment_page from "./pages/admin/CashPayment_page";
+import Pos_page from "./pages/admin/Pos_page";
 
 const Home_page_content = React.lazy(() =>
   import("./pages/user/Home/Home_page_content")
@@ -96,6 +97,12 @@ function App() {
             path="/admin/cash-payment"
             element={
               <CashPayment_page/>
+            }
+          />
+          <Route
+            path="/admin/pos"
+            element={
+              <Pos_page/>
             }
           />
         </Route>

@@ -19,32 +19,36 @@ import toast from "react-hot-toast";
 function Home_page_content() {
   const cart = useSelector((state) => state.cart.products);
   const [category, setCategory] = useState({});
-  const [loading , setLoading ] =useState(false)
+  const [loading, setLoading] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const [search, setSearch] = useState("");
   const [product_type, setProductType] = useState("");
-  const [bestSeller , setBestSeller] = useState(true)
+  const [bestSeller, setBestSeller] = useState(true);
   const table = searchParams.get("table");
   const branchId = searchParams.get("branch_id");
   const [expandedProducts, setExpandedProducts] = useState({});
-  const navigate  =  useNavigate()
+  const navigate = useNavigate();
 
   async function getTableData(isInitialLoad = false) {
     if (isInitialLoad) setInitialLoading(true);
-    setLoading(true)
+    setLoading(true);
     await axios
       .get(
-        `${ApiUrl.digitalMenu}?table=${table}&branch_id=${branchId}&search=${search}&product_type=${product_type}&set_menu=${Number(bestSeller)}`
+        `${
+          ApiUrl.digitalMenu
+        }?table=${table}&branch_id=${branchId}&search=${search}&product_type=${product_type}&set_menu=${Number(
+          bestSeller
+        )}`
       )
       .then((res) => {
         setCategory(res.data);
       })
-      .finally(() =>
-     { setLoading(false)
-      if (isInitialLoad) setInitialLoading(false);}
-    );
+      .finally(() => {
+        setLoading(false);
+        if (isInitialLoad) setInitialLoading(false);
+      });
   }
 
   useEffect(() => {
@@ -57,14 +61,16 @@ function Home_page_content() {
 
   useEffect(() => {
     getTableData();
-  }, [search, product_type , bestSeller ]);
+  }, [search, product_type, bestSeller]);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
     setExpandedProducts({});
   };
 
-  return initialLoading ? <Loader/> : (
+  return initialLoading ? (
+    <Loader />
+  ) : (
     <Home_page restaurantInfo={category}>
       {category.status !== "Booked" ? (
         <>
@@ -77,7 +83,7 @@ function Home_page_content() {
                   className=" flex justify-center items-center border rounded-md text-[13px] sm:text-sm gap-2 px-1 sm:px-2 bg-[#ffe395]  border-[#ffe395]"
                 >
                   <img
-                  loading="lazy"
+                    loading="lazy"
                     src="https://frenzoo.qrdine-in.com/public/assets/images/icons/veg.svg"
                     alt="veg"
                   />
@@ -89,7 +95,7 @@ function Home_page_content() {
                   className="  flex justify-center items-center border rounded-md text-[13px] sm:text-sm gap-2 px-1 sm:px-2 border-[#f5f5f5]"
                 >
                   <img
-                  loading="lazy"
+                    loading="lazy"
                     src="https://frenzoo.qrdine-in.com/public/assets/images/icons/veg.svg"
                     alt="veg"
                   />
@@ -101,11 +107,14 @@ function Home_page_content() {
                   onClick={() => setProductType("non_veg")}
                   className=" flex justify-center items-center border rounded-md text-sm gap-2 p-2 bg-[#ffe395]  border-[#ffe395]"
                 >
-                  <img
-                  loading="lazy"
-                    src="https://frenzoo.qrdine-in.com/public/assets/images/svg/nonveg.svg"
-                    alt="veg"
-                  />
+                  <div className="  w-4 h-4">
+                    <img
+                      className=" w-full h-full"
+                      loading="lazy"
+                      src="https://frenzoo.qrdine-in.com/public/assets/images/svg/nonveg.svg"
+                      alt="veg"
+                    />
+                  </div>
                   Non Veg
                 </button>
               ) : (
@@ -113,40 +122,49 @@ function Home_page_content() {
                   onClick={() => setProductType("non_veg")}
                   className=" flex justify-center items-center border rounded-md text-sm gap-2 p-2 border-[#f5f5f5]"
                 >
-                  <img
-                  loading="lazy"
-                    src="https://frenzoo.qrdine-in.com/public/assets/images/svg/nonveg.svg"
-                    alt="veg"
-                  />
+                  <div className="  w-4 h-4">
+                    <img
+                      className=" w-full h-full"
+                      loading="lazy"
+                      src="https://frenzoo.qrdine-in.com/public/assets/images/svg/nonveg.svg"
+                      alt="veg"
+                    />
+                  </div>
                   Non Veg
                 </button>
-              )} 
+              )}
 
-              <button onClick={()=> setBestSeller(!bestSeller)} 
-              className={`${bestSeller ? " border-[#f5f5f5]" : "bg-[#ffe395]  border-[#ffe395]"} flex justify-center items-center border rounded-md text-sm gap-2 p-2 `}>
-              <img
-              loading="lazy"
-                src="https://frenzoo.qrdine-in.com/public/assets/images/icons/veg.svg"
-                alt="veg"
-              />
-              Best Seller
-            </button>
-
+              <button
+                onClick={() => setBestSeller(!bestSeller)}
+                className={`${
+                  bestSeller
+                    ? " border-[#f5f5f5]"
+                    : "bg-[#ffe395]  border-[#ffe395]"
+                } flex justify-center items-center border rounded-md text-sm gap-2 p-2 `}
+              >
+                <div className="  w-4 h-4">
+                  <img
+                    className=" w-full h-full"
+                    loading="lazy"
+                    src="best-seller.png"
+                    alt="veg"
+                  />
+                </div>
+                Best Seller
+              </button>
             </div>
             <div>
-            {
-              product_type && (
+              {product_type && (
                 <button
                   onClick={() => {
-                    setProductType("")
-                    setBestSeller(true)
+                    setProductType("");
+                    setBestSeller(true);
                   }}
                   className=" flex justify-center py-2 items-center border rounded-md text-[13px] sm:text-sm gap-2 px-1 sm:px-2 bg-white "
                 >
                   Clear filter<i className="fa-solid fa-xmark"></i>
-              </button>
-              )
-            }
+                </button>
+              )}
             </div>
           </div>
           <div className="w-full relative">
@@ -154,11 +172,12 @@ function Home_page_content() {
               <div className="pt-6">
                 <div className="text-xl text-black font-bold">Recommended</div>
               </div>
-              {
-                loading ? <Loading className={"mt-10 border-black"}/> : (
-                  <div className="pb-8">
-                {category && category.categories?.length > 0
-                  ? category.categories.map((item) => (
+              {loading ? (
+                <Loading className={"mt-10 border-black"} />
+              ) : (
+                <div className="pb-8">
+                  {category && category.categories?.length > 0 ? (
+                    category.categories.map((item) => (
                       <ProductAccordion
                         product_type={product_type}
                         bestSeller={bestSeller}
@@ -169,21 +188,22 @@ function Home_page_content() {
                         setExpandedProducts={setExpandedProducts}
                       />
                     ))
-                  : <div className=" mt-10 flex justify-center items-center">
-                    <div>
-                    No data found 
+                  ) : (
+                    <div className=" mt-10 flex justify-center items-center">
+                      <div>No data found</div>
                     </div>
-                    </div>}
-              </div>
-                )
-              }
+                  )}
+                </div>
+              )}
               {cart.length > 0 && (
                 <Bottom_cart_comp
                   // price={price}
                   // item={totalCount}
                   action="View Cart"
                   onClick={() => {
-                    navigate(`/cart_items?table=${table}&branch_id=${branchId}`);
+                    navigate(
+                      `/cart_items?table=${table}&branch_id=${branchId}`
+                    );
                   }}
                 />
               )}

@@ -34,7 +34,6 @@ const navItems = [
       {
         name: "Order Management",
         image: <i class="fa-solid fa-cart-shopping"></i>,
-        to: "/",
         subMenu: [
           {
             name: "All",
@@ -86,7 +85,6 @@ const navItems = [
       {
         name: "Product Setup",
         image: <i class="fa-solid fa-diamond"></i>,
-        to: "/",
         subMenu: [
           {
             name: "Product Customization",

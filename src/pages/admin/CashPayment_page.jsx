@@ -21,7 +21,9 @@ function CashPayment_page() {
             <input type="text" placeholder="Search by Order ID" className=" border-gray-200 border w-fit p-2 rounded-l-lg " />
             <button className=" bg-green-700 px-4  py-2 rounded-r-lg border border-green-700 text-white">Search</button>
         </div>
-        <div></div>
+        <div>
+          
+        </div>
       </Dashboard_card>
     </Dashboard>
   );

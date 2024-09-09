@@ -73,7 +73,7 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route
+        {/* <Route
           path="/admin"
           element={
             <Suspense fallback={<Loader />}>
@@ -105,7 +105,7 @@ function App() {
               <Pos_page/>
             }
           />
-        </Route>
+        </Route> */}
 
           {/* mobile and web routes */}
 

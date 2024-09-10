@@ -19,7 +19,7 @@ export default defineConfig({
     // get rid of the CORS error
     proxy:{
       "/api":{
-        target:"https://frenzoo.qrdine-in.com",
+        target:"https://ooliveandbeige.qrdine-in.com",
         changeOrigin:true,
         secure:true
       }
